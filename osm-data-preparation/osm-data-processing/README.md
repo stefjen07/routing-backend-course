@@ -6,15 +6,21 @@ Using Osmium as a CLI tool, you can perform a wide range of OSM data processing 
 
 To use Osmium as a CLI tool, you need to install it on your computer, which can be done using your operating system's package manager or by compiling from source code. Once installed, you can run Osmium commands in the terminal or command prompt, using the following syntax:
 
-osmium \<command\> [options] \<input file\> [\<output file\>]
+```
+osmium <command> [options] <input file> [<output file>]
+```
 
 For example, to convert an OSM PBF file to an XML file, you can use the following command:
 
+```
 osmium cat input.osm.pbf -o output.xml
+```
 
 This command will read the input file input.osm.pbf, convert it to XML format, and write the output to the file output.xml. Similarly, to filter OSM data based on specific criteria, you can use the following command:
 
+```
 osmium tags-filter input.osm.pbf -o output.osm.pbf "amenity=restaurant"
+```
 
 This command will read the input file input.osm.pbf, filter the data based on the amenity=restaurant tag, and write the output to the file output.osm.pbf.
 
