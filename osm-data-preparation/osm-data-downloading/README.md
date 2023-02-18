@@ -1,6 +1,6 @@
 # Lesson 2. Downloading OSM data
 
-To work with OpenStreetMap data, the first step is to download the data in a format that can be used by your application. In this lesson, we will explore the different ways to download OSM data, including using the OSM website, the Overpass API, and third-party data providers.
+To work with OpenStreetMap data, the first step is to download the data in a format that can be used by your application. In this lesson, we will explore the different ways to download OSM data, including using the OSM website and third-party data providers.
 
 ## Downloading Data from the OSM Website
 
