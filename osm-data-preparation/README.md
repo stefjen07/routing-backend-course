@@ -7,7 +7,7 @@ By the end of this module, you will have a solid understanding of how to prepare
 ## Lessons
 ### Lesson 1. OSM basics
 ### Lesson 2. Downloading OSM data
-### Lesson 3. OSM data conversion and filtering
-### Lesson 4. Database setup
-### Lesson 5. Database filling
+### Lesson 3. Database setup
+### Lesson 4. Database filling
+### Lesson 5. OSM data conversion and filtering (Bonus)
 ### Lesson 6. Custom parser (Bonus)

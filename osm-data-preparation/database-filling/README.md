@@ -2,7 +2,7 @@
 
 ## Using PostGIS and osm2psql tool
 
-After creating the database, we need to enable the PostGIS extension that provides support for geospatial data types and functions in PostgreSQL. This can be done by connecting to the database using the psql command-line utility and running the following SQL command:
+After creating the database, we need to enable the PostGIS extension that provides support for geospatial data types and functions in PostgreSQL. First, we need to download and install [PostGIS](https://postgis.net/install/). Second, we need to connect to the database using the psql command-line utility and run the following SQL command:
 
 ```
 CREATE EXTENSION postgis;
