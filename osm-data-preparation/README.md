@@ -10,3 +10,4 @@ By the end of this module, you will have a solid understanding of how to prepare
 ### Lesson 3. OSM data conversion and filtering
 ### Lesson 4. Database setup
 ### Lesson 5. Database filling
+### Lesson 6. Custom parser (Bonus)
