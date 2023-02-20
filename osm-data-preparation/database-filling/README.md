@@ -9,12 +9,12 @@ CREATE EXTENSION postgis;
 ```
 With PostGIS enabled, we can now load OSM data into the database using the osm2pgsql tool, which is a popular tool for importing OSM data into PostgreSQL. This tool reads OSM data in various file formats, such as PBF, XML, and others, and converts it into a format that can be loaded into the PostgreSQL database.
 
-To load OSM data into the geodb database, we can use the following command:
+After PostGIS installation, you must download [osm2pgsql](https://osm2pgsql.org/doc/install.html) tool. Then, use the following command (in terminal) to load OSM data into the geodb database:
 
 ```
-osm2pgsql --create --database geodb --username geouser path/to/osm/data.osm.pbf
+osm2pgsql --create --database geodb --username postgres path/to/osm/data.osm.pbf
 ```
-This command will create a new PostgreSQL database schema, load the OSM data from the file data.osm.pbf, and store it in the geodb database using the geouser user.
+This command will create a new PostgreSQL database schema, load the OSM data from the file data.osm.pbf, and store it in the geodb database using the postgres user.
 
 After loading the data, we can perform various geospatial queries on the OSM data using the powerful PostGIS functions and tools, such as finding all restaurants within a certain radius or calculating the shortest path between two locations.
 
