@@ -15,3 +15,4 @@ This course is intended for learning Java, Spring framework, algorithms and data
 4. If your reviewer approves the pull request, you can merge it (use [squash and merge](https://docs.gitlab.com/ee/user/project/merge_requests/squash_and_merge.html)) and go to the next module.
 ## Modules
 ### Module 1. OSM data preparation
+### Module 2. Authentication
