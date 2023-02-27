@@ -12,7 +12,7 @@ With PostGIS enabled, we can now load OSM data into the database using the osm2p
 After PostGIS installation, you must download [osm2pgsql](https://osm2pgsql.org/doc/install.html) tool. Then, use the following command (in terminal) to load OSM data into the geodb database:
 
 ```
-osm2pgsql --create --database geodb --username postgres --password your-password path/to/osm/data.osm.pbf
+osm2pgsql --create --database geodb --username postgres --password path/to/osm/data.osm.pbf
 ```
 This command will create a new PostgreSQL database schema, load the OSM data from the file data.osm.pbf, and store it in the geodb database using the postgres user.
 
