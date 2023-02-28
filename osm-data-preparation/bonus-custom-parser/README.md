@@ -8,19 +8,53 @@ To parse the XML file, we can use a Java XML parser library such as javax.xml.st
 
 First, you must create XMLInputFactory. Then you must create XMLStreamReader with use of this factory.
 
+The XMLStreamReader's next() method is a key method used for parsing XML documents. When called, it reads the next event from the input source and returns an integer representing the type of event that was encountered.
+
+The method advances the reader to the next event in the stream, which could be a start element, an end element, a processing instruction, a comment, or whitespace. If there are no more events in the stream, the method returns END_DOCUMENT to signal the end of the document.
+
+The next() method is typically called in a loop to read through the entire XML document. After reading each event, the application can use the XMLStreamReader's other methods to access the details of the event, such as the name, attributes, and text content of the element.
+
+The getText() method returns the textual content of the current event. When called, it returns a String object that contains the text content of the current element, or an empty String if there is no text content. This method is commonly used to extract the value of XML tags.
+
+The getAttributeValue() method returns the value of a specified attribute for the current event. When called, it takes a namespace URI and local name as arguments and returns the value of the specified attribute, or null if the attribute does not exist. This method is commonly used to extract attribute values from XML elements, such as the value of an ID attribute or the value of a custom attribute used in an XML schema.
+
 The reading code block should look similar to this:
 ```
-while (reader.hasNext()) {
-    int eventType = reader.next();
-    switch (eventType) {
-        case XMLStreamReader.START_ELEMENT:
-            String elementName = reader.getLocalName();
-            if (elementName.equals("node"))
-                return readNode(reader);
-            break;
-        case XMLStreamReader.END_ELEMENT:
-            break;
+private OSMObject readDocument(XMLStreamReader reader) throws XMLStreamException {
+    while (reader.hasNext()) {
+        int eventType = reader.next();
+        switch (eventType) {
+            case XMLStreamReader.START_ELEMENT:
+                String elementName = reader.getLocalName();
+                if (elementName.equals("node")) {
+                    Node node = new Node(); 
+                    node.id = reader.getAttributeValue(null, "id");
+                    node.tags = readNodeTags(reader);
+                    return node;
+                }
+                break;
+            case XMLStreamReader.END_ELEMENT:
+                break;
+        }
     }
+    throw new XMLStreamException("Premature end of file");
+}
+
+private List<Tag> readNodeTags(XMLStreamReader reader) throws XMLStreamException {
+    List<Tag> tags = new ArrayList<>();
+    while (reader.hasNext()) {
+        int eventType = reader.next();
+        switch (eventType) {
+            case XMLStreamReader.START_ELEMENT:
+                String elementName = reader.getLocalName();
+                if (elementName.equals("tag"))
+                    tags.add(readNodeTag(reader));
+                break;
+            case XMLStreamReader.END_ELEMENT:
+                return tags;
+        }
+    }
+    throw new XMLStreamException("Premature end of file");
 }
 ```
 
